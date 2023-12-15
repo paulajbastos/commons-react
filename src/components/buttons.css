@@ -1,0 +1,179 @@
+:root {
+  --background: white;
+  --primary: #222;
+  --secondary: black;
+  --content: black;
+  --disabled: gray;
+}
+
+.button {
+  border: 2px solid var(--background);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  color: var(--background);
+  background: var(--primary);
+  position: relative;
+  transition: background 300ms ease-in-out;
+  position: relative;
+  cursor: pointer;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+
+  &:before {
+    content: "";
+    border: 2px transparent solid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    transition: border 600ms ease;
+  }
+}
+
+.button--primary {
+  color: var(--background);
+  background: var(--primary);
+}
+
+.button--secondary {
+  color: var(--background);
+  background: var(--content);
+}
+
+.button--small {
+  padding: 0.2rem 0.5rem;
+
+  &:hover {
+    background: #333;
+  }
+
+  .loadingIcon {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.button--medium {
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background: #333;
+  }
+
+  .loadingIcon {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.button--large {
+  padding: 1rem 2rem;
+  &:hover {
+    background: #333;
+  }
+
+  &:hover {
+    &:before {
+      border: 0.3rem var(--background) solid;
+    }
+  }
+
+  .loadingIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.button--circle {
+  width: 5.6rem;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin-left: auto;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.button--disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+
+  &:hover {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.button--loading-icon {
+  color: transparent;
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  60% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  80% {
+    transform: scale(2.5);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.button--loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 0;
+  margin: 0 auto;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 0.5px solid var(--background);
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2s linear infinite;
+  }
+  &:after {
+    animation-delay: -1s;
+  }
+}
+
+.link {
+  text-decoration: underline;
+  &:hover {
+    color: hotpink;
+  }
+}
